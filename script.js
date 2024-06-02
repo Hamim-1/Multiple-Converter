@@ -6,6 +6,10 @@ const converter = {
                 name: 'Gram',
                 formula: 1
             },
+            poinds: {
+                name: 'Pounds',
+                formula: 453.592
+            },
             kilogram: {
                 name: 'Kilogram',
                 formula: 1000
@@ -19,20 +23,57 @@ const converter = {
     time: {
         name: 'Time',
         units: {
+            millisecond: {
+                name: 'Millisecond',
+                formula: 1
+            },
             second: {
                 name: 'Second',
-                formula: 1
+                formula: 1000
             },
             miniute: {
                 name: 'Miniute',
-                formula: 60
+                formula: 60000
 
             },
             hour: {
                 name: 'Hour',
-                formula: 3600
+                formula: 3600000
 
+            },
+            day: {
+                name: 'Day',
+                formula: 86400000
             }
+        }
+    },
+    data: {
+        name: 'Data',
+        units: {
+            bits: {
+                name: 'Bits',
+                formula: 1
+            },
+            bytes: {
+                name: 'Bytes',
+                formula: 8
+            },
+            kilobytes: {
+                name: 'Kilobytes',
+                formula: 8192
+            },
+            megabytes: {
+                name: 'Megabytes',
+                formula: 8388608
+            },
+            gigabytes: {
+                name: 'Gigabytes',
+                formula: 8589934592
+            },
+            terabytes: {
+                name: 'Terabytes',
+                formula: 8796093022208
+            },
         }
     }
 }
@@ -135,6 +176,11 @@ function main() {
                 rightSelectedOption = rightSelect.value;
                 doCalculation(leftInput);
             }
+        }
+
+        if (leftInput.value == 0 || rightInput.value == 0) {
+            leftInput.value = '';
+            rightInput.value = '';
         }
         leftSelectedOption = leftSelect.value;
         rightSelectedOption = rightSelect.value;
